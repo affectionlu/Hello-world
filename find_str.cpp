@@ -51,18 +51,22 @@ int main()
   //get input strings;
   cin.getline(p_a,101,'\n');
   cin.getline(p_b,101,'\n');
-
+  strip_space_ht(p_a);
+  strip_space_ht(p_b);
   size_t len_a=get_length(p_a);
   size_t len_b=get_length(p_b);
-  
-
+ 
   //check if input string is valid;
   if(len_b>len_a)
   {
     cout<<"Not found"<<endl;
 	return -1;
   }
-
+  if(len_b==0)
+  {
+    cout<<"Not found"<<endl;
+	return -1;
+  }
   char* p_temp;
 
   while(*p_a!='\0')
