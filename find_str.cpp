@@ -10,6 +10,35 @@ inline size_t get_length(char* p)
   }
   return i;
 }
+inline void strip_space_ht(char* a)
+{
+   char *p=a;
+   char c[101];
+   char* begin;//begin:inclusive,end:exclusive
+   char* end;
+   while(*p==' ')
+    p++;
+   begin=p;
+   while(*p!='\0')
+	 p++;
+   p--;
+   while(*p==' ')
+    p--;
+   end=p+1;
+   char * temp=begin;
+   int i=0;
+   for(;temp!=end;temp++,i++)
+   {
+	   c[i]=*temp;
+   }
+   c[i]='\0';
+   for(i=0;c[i]!='\0';i++)
+   {
+     a[i]=c[i];
+   }
+   a[i]='\0';
+
+}
 int main()
 {
   char a[101];
@@ -20,17 +49,17 @@ int main()
   char* p_c=&c[0];
   
   //get input strings;
-  cout<<"please input two strings!"<<endl;
   cin.getline(p_a,101,'\n');
   cin.getline(p_b,101,'\n');
 
   size_t len_a=get_length(p_a);
   size_t len_b=get_length(p_b);
+  
 
   //check if input string is valid;
   if(len_b>len_a)
   {
-    cout<<"wrong input,str2 is longer than str1"<<endl;
+    cout<<"Not found"<<endl;
 	return -1;
   }
 
@@ -85,7 +114,7 @@ if(*p_b=='\0')
 }
 else
 {
-  cout<<"Not Found"<<endl;
+  cout<<"Not found"<<endl;
   return -1;
 }
 
